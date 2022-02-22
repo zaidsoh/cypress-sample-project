@@ -1,0 +1,18 @@
+{
+    "user": {
+        "name" : "Test User",
+        "email" : "test@testmail.com",
+        "pass" : "test123",
+        "usedemail" : "test@test.com",
+        "domain" : "@testmail.com"
+    },
+
+    "post": {
+        "title" : "Test title",
+        "about" : "Test about info",
+        "desc" : "Test description",
+        "tags" : "Test tag1, test tag2, test tag3",
+        "usedtitle" : "Create a new implementation",
+        "comment" : "Test comment"
+    }
+}

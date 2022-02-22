@@ -1,0 +1,24 @@
+/// PRE-REQUISITES ///
+    // OS //
+        macOS 10.9 and above (64-bit only) OR
+        Linux Ubuntu 12.04 and above, Fedora 21 and Debian 8 (64-bit only) OR
+        Windows 7 and above (64-bit only)
+    // ENV //
+        Node.js 12 or 14 and above
+
+/// BEFORE EXECUTION ///
+    1. Extract provided folder 
+    2. Within the extracted folder, go to Q1 directory
+    3. Run npm install (this should download and install all dependencies)
+
+/// EXECUTION ///
+    1. To run in chrome, execute npm run cy-run-chrome
+    2. To run in firefox, execute npm run cy-run-firefox
+    3. To run in electron, execute npm run cy-run-electron
+    4. You can also run npx cypress open and execute the specs, individually or collectively, from the given GUI
+
+/// MORE INFO /// 
+    - Above three commands will execute both spec files in a headless mode and generate a report at the end
+    - Recording of the latest run is saved under ./cypress/videos (seperately for each spec)
+    - Screenshots of failing test cases can be seen under ./cypress/screenshots
+    - Details of individual test cases are available in the spec files 
