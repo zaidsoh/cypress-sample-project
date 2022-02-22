@@ -1,12 +1,10 @@
 /// <reference types="cypress" />
-const data = require('../fixtures/data.json')
-//Generate random whole number
-//Used for uniqueness of post titles across multiple runs
-const index = Math.floor(Math.random()*10000000)
+import data from '../fixtures/data.json'
+import selectors from '../support/selectors'
 
+const index = Math.floor(Math.random()*10000000) /** Generate random whole number. 
+                                                     Used for uniqueness of post titles across multiple runs */
 describe("Create a post -", function () {
-
-    //Login using cy.login (custom command added in commands.js) and visit home page before each test
     beforeEach (function () {
         cy.login('test777@test.com', 'test123')
         cy.visit('/')
@@ -26,27 +24,27 @@ describe("Create a post -", function () {
 
     it("should show related error message if no inputs are provided", function () {
         cy.createPost('', '', '', '')
-        cy.get("ul[class='error-messages']").should('contain', "title can't be blank")
+        cy.get(selectors.errMsg).should('contain', "title can't be blank")
     })
 
     it("should show related error message if no title is provided", function () {
         cy.createPost('', data.post.about, data.post.desc, data.post.tags)
-        cy.get("ul[class='error-messages']").should('contain', "title can't be blank")
+        cy.get(selectors.errMsg).should('contain', "title can't be blank")
     })
 
     it("should show related error message if no about information is provided", function () {
         cy.createPost(data.post.title, '', data.post.desc, data.post.tags)
-        cy.get("ul[class='error-messages']").should('contain', "description can't be blank")
+        cy.get(selectors.errMsg).should('contain', "description can't be blank")
     })
 
     it("should show related error message if no description is provided", function () {
         cy.createPost(data.post.title, data.post.about, '', data.post.tags)
-        cy.get("ul[class='error-messages']").should('contain', "body can't be blank")
+        cy.get(selectors.errMsg).should('contain', "body can't be blank")
     })
 
     it("should show related error message if previously used title is provided", function () {
         cy.createPost(data.post.usedtitle, data.post.about, data.post.desc, data.post.tags)
-        cy.get("ul[class='error-messages']").should('contain', "title must be unique")
+        cy.get(selectors.errMsg).should('contain', "title must be unique")
     })
 
     it("should allow the user to successfully create a new post", function () {
